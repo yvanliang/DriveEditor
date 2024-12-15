@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG" />
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG" />
+  <meta property="og:url" content="URL OF THE WEBSITE" />
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>DriveEditor: A Unified 3D Information-Guided Framework for Controllable Object Editing in Driving Scenes
+  </title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/video-compare.min.js"></script>
+  <script src="static/js/index.js"></script>
+
+  <style>
+    .video-new-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0;
+    }
+
+    video {
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+              DriveEditor: A Unified 3D Information-Guided Framework for Controllable Object Editing in Driving Scenes
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                Yiyuan Liang<sup>1,2,*</sup>,</span>
+              <span class="author-block">
+                Zhiying Yan<sup>1,2,*</sup>,</span>
+              <span class="author-block">
+                Liqun Chen<sup>1,2,*</sup>,</span>
+              <span class="author-block">
+                Jiahuan Zhou<sup>3</sup>,</span><br>
+              <span class="author-block">
+                Luxin Yan<sup>1,2</sup>,</span>
+              <span class="author-block">
+                Sheng Zhong<sup>1,2</sup>,</span>
+              <span class="author-block">
+                Xu Zou<sup>1,2,†</sup></span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <sup>1</sup>Huazhong University of Science and Technology<br>
+                <sup>2</sup>National Key Laboratory of Multispectral Information Intelligent Processing Technology<br>
+                <sup>3</sup>Wangxuan Institute of Computer Technology, Peking University<br>
+              </span>
+              <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution,<sup>†</sup>Indicates
+                  Corresponding Author</small></span><br>
+            </div>
+            <div class="is-size-3 publication-authors">
+              <span class="author-block"
+                style="background: linear-gradient(to right, rgb(255, 0, 0), rgb(0, 255, 0), rgb(0, 0, 0)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;line-height: 1.5;"><b>AAAI
+                  2025</b></span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>ArXiv</span>
+                  </a>
+                </span>
+
+                <!-- Arxiv PDF link -->
+                <span class="link-block">
+                  <a target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Conference Paper</span>
+                  </a>
+                </span>
+
+                <!-- Github link -->
+                <span class="link-block">
+                  <a href="https://github.com/yvanliang/DriveEditor" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section hero is-light">
+    <div class="hero-body" style="padding-top: 0; padding-bottom: 0">
+      <div class="container is-max-desktop">
+
+        <div id="results-carousel1" class="carousel results-carousel">
+
+          <div class="item item1" style="text-align:center;">
+            <div class="video-new-container" style=" margin-bottom: 15px;">
+              <div class="container is-max-desktop" style="object-fit: contain; max-width: 440px">
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/vis1_repositioning.mp4">
+                </video>
+              </div>
+
+              <div class="container is-max-desktop" style="object-fit: contain; max-width: 440px">
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/vis1_insertion.mp4">
+                </video>
+              </div>
+            </div>
+
+            <div class="video-new-container" style=" margin-bottom: 15px;">
+              <div class="container is-max-desktop" style="object-fit: contain; max-width: 440px">
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/vis1_replacement.mp4">
+                </video>
+              </div>
+
+              <div class="container is-max-desktop" style="object-fit: contain; max-width: 440px">
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/vis1_deletion.mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <div class="item item2" style="text-align:center;">
+            <div class="video-new-container" style=" margin-bottom: 15px;">
+              <div class="container is-max-desktop" style="object-fit: contain; max-width: 440px">
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/vis2_repositioning.mp4">
+                </video>
+              </div>
+
+              <div class="container is-max-desktop" style="object-fit: contain; max-width: 440px">
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/vis2_insertion.mp4">
+                </video>
+              </div>
+            </div>
+
+            <div class="video-new-container" style=" margin-bottom: 15px;">
+              <div class="container is-max-desktop" style="object-fit: contain; max-width: 440px">
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/vis2_replacement.mp4">
+                </video>
+              </div>
+
+              <div class="container is-max-desktop" style="object-fit: contain; max-width: 440px">
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/vis2_deletion.mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <h4 class="subtitle has-text-centered"><b>DriveEditor enables user-friendly repositioning, insertion, replacement,
+        and deletion within a unified framework.</b></h4>
+  </section>
+
+  </section>
+
+  <section class="section hero">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-2"
+            style="background: linear-gradient(to right,  indigo, indigo, skyblue, indigo, indigo); -webkit-background-clip: text; -webkit-text-fill-color: transparent;line-height: 1.5;">
+            Abstract</h2>
+        </div>
+      </div>
+      <p>
+        Vision-centric autonomous driving systems require diverse data for robust training and evaluation, which can be
+        augmented by manipulating object positions and appearances within existing scene captures. While recent
+        advancements in diffusion models have shown promise in video editing, their application to object manipulation
+        in driving scenarios remains challenging due to imprecise positional control and difficulties in preserving
+        high-fidelity object appearances. To address these challenges in position and appearance control, we introduce
+        DriveEditor, a diffusion-based framework for object editing in driving videos. DriveEditor offers a unified
+        framework for comprehensive object editing operations, including repositioning, replacement, deletion, and
+        insertion. These diverse manipulations are all achieved through a shared set of varying inputs, processed by
+        identical position control and appearance maintenance modules. The position control module projects the given 3D
+        bounding box while preserving depth information and hierarchically injects it into the diffusion process,
+        enabling precise control over object position and orientation. The appearance maintenance module preserves
+        consistent attributes with a single reference image by employing a three-tiered approach: low-level detail
+        preservation, high-level semantic maintenance, and the integration of 3D priors from a novel view synthesis
+        model. Extensive qualitative and quantitative evaluations on the nuScenes dataset demonstrate DriveEditor's
+        exceptional fidelity and controllability in generating diverse driving scene edits, as well as its remarkable
+        ability to facilitate downstream tasks.
+      </p>
+    </div>
+    </div>
+  </section>
+
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-2"
+            style="background: linear-gradient(to right,  indigo, indigo, skyblue, indigo, indigo); -webkit-background-clip: text; -webkit-text-fill-color: transparent;line-height: 1.5;">
+            Structure</h2>
+        </div>
+      </div>
+      <div class="hero-body" style="padding-top: 0; padding-bottom: 0">
+        <img src="static/images/structure.png" alt="MY ALT TEXT" , width="900" />
+      </div>
+      <b>(a)</b> High-level overview of DriveEditor. <b>(b)</b> Diagram of the training pipeline of DriveEditor.
+      Three levels of appearance control are established based on the single reference image I<sup>r</sup>: low-level
+      details preservation through a cut-and-paste approach, high-level semantics maintenance through cross-attention
+      (omitted in the pipeline for brevity), and incorporation of 3D priors derived from the frozen SV3D U-Net. For
+      position control, we perform a projection that preserves depth information, followed by the Pose Controller to
+      extract multi-scale features. Control signals are injected through three distinct paths in block of the video
+      model: position features into ResBlocks, semantic features via cross-attention, and 3D features added to block
+      outputs.
+    </div>
+    </div>
+  </section>
+
+
+  <section class="section hero">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-2"
+            style="background: linear-gradient(to right,  indigo, indigo, skyblue, indigo, indigo); -webkit-background-clip: text; -webkit-text-fill-color: transparent;line-height: 1.5;">
+            Unified Editing</h2>
+        </div>
+      </div>
+      <div class="hero-body" style="padding-top: 0; padding-bottom: 0; margin-bottom: 15px;">
+        <img src="static/images/unify.png" alt="MY ALT TEXT" , width="900" />
+      </div>
+      <h4 class="subtitle has-text-centered"><b>DriveEditor is trained to reconstruct occluded objects using inputs from
+          constructed dataset. At inference time, it performs various editing tasks based on specific input prompts.
+        </b></h4>
+    </div>
+    </div>
+
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-2"
+            style="background: linear-gradient(to right,  indigo, indigo, skyblue, indigo, indigo); -webkit-background-clip: text; -webkit-text-fill-color: transparent;line-height: 1.5;">
+            Long Video Editing</h2>
+        </div>
+      </div>
+      <div class="hero-body" style="padding-top: 0; padding-bottom: 0">
+        <div class="container is-max-desktop">
+          <div class="video-new-container" style=" margin-bottom: 15px;">
+
+            <div class="vc-slider-container" style="object-fit: contain; max-width: 440px;">
+              <video playsinline autoplay muted loop>
+                <source src="static/videos/long1_replacement.mp4">
+              </video>
+              <video playsinline autoplay muted loop>
+                <source src="static/videos/long1_origin.mp4">
+              </video>
+            </div>
+
+            <div class="vc-slider-container" style="object-fit: contain; max-width: 440px;">
+              <video playsinline autoplay muted loop>
+                <source src="static/videos/long2_deletion.mp4">
+              </video>
+              <video playsinline autoplay muted loop>
+                <source src="static/videos/long2_origin.mp4">
+              </video>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+      <h4 class="subtitle has-text-centered"><b>DriveEditor supports iterative editing by conditioning on the last frame
+          of the previous video, allowing for the editing of long videos. (demo: 39 frames)</b></h4>
+    </div>
+    </div>
+
+  </section>
+
+  <section class="section hero">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-2"
+          style="background: linear-gradient(to right,  indigo, indigo, skyblue, indigo, indigo); -webkit-background-clip: text; -webkit-text-fill-color: transparent;line-height: 1.5;">
+          More Editing Results</h2>
+        <label>
+          <input type="checkbox" id="videoToggle" onchange="toggleVideo()"> Show position condition on the videos (for
+          insertion and repositioning)
+        </label>
+      </div>
+    </div>
+
+    <div class="hero-body" style="padding-top: 0; padding-bottom: 0">
+      <div class="container is-max-desktop">
+
+        <div id="results-carousel2" class="carousel results-carousel">
+
+          <div class="item item1" style="text-align:center;">
+            <div class="video-new-container" style=" margin-bottom: 15px;">
+              <div class="vc-slider-container" style="object-fit: contain; max-width: 440px;">
+                <video id="video_reposition1" playsinline autoplay muted loop>
+                  <source src="static/videos/reposition1.mp4">
+                </video>
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/reposition1_origin.mp4">
+                </video>
+              </div>
+
+              <div class="vc-slider-container" style="object-fit: contain; max-width: 440px;">
+                <video id="video_reposition2" playsinline autoplay muted loop>
+                  <source src="static/videos/reposition2.mp4">
+                </video>
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/reposition2_origin.mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <div class="item item2" style="text-align:center;">
+            <div class="video-new-container">
+              <div class="vc-slider-container" style="object-fit: contain; max-width: 440px;">
+                <video id="video_reposition3" playsinline autoplay muted loop>
+                  <source src="static/videos/reposition3.mp4">
+                </video>
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/reposition3_origin.mp4">
+                </video>
+              </div>
+
+              <div class="vc-slider-container" style="object-fit: contain; max-width: 440px;">
+                <video id="video_reposition4" playsinline autoplay muted loop>
+                  <source src="static/videos/reposition4.mp4">
+                </video>
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/reposition4_origin.mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <h4 class="subtitle has-text-centered"><b>Repositioning Results</b></h4>
+
+
+    <div class="hero-body" style="padding-top: 0; padding-bottom: 0">
+      <div class="container is-max-desktop">
+
+        <div id="results-carousel3" class="carousel results-carousel">
+
+          <div class="item item1" style="text-align:center;">
+            <div class="video-new-container" style=" margin-bottom: 15px;">
+              <div class="vc-slider-container" style="object-fit: contain; max-width: 440px;">
+                <video id="video_insertion1" playsinline autoplay muted loop>
+                  <source src="static/videos/insertion1.mp4">
+                </video>
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/insertion1_origin.mp4">
+                </video>
+              </div>
+
+              <div class="vc-slider-container" style="object-fit: contain; max-width: 440px;">
+                <video id="video_insertion2" playsinline autoplay muted loop>
+                  <source src="static/videos/insertion2.mp4">
+                </video>
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/insertion2_origin.mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <div class="item item2" style="text-align:center;">
+            <div class="video-new-container">
+              <div class="vc-slider-container" style="object-fit: contain; max-width: 440px;">
+                <video id="video_insertion3" playsinline autoplay muted loop>
+                  <source src="static/videos/insertion3.mp4">
+                </video>
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/insertion3_origin.mp4">
+                </video>
+              </div>
+
+              <div class="vc-slider-container" style="object-fit: contain; max-width: 440px;">
+                <video id="video_insertion4" playsinline autoplay muted loop>
+                  <source src="static/videos/insertion4.mp4">
+                </video>
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/insertion4_origin.mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <h4 class="subtitle has-text-centered"><b>Insertion Results</b></h4>
+
+    <div class="hero-body" style="padding-top: 0; padding-bottom: 0">
+      <div class="container is-max-desktop">
+
+        <div id="results-carousel4" class="carousel results-carousel">
+
+          <div class="item item1" style="text-align:center;">
+            <div class="video-new-container" style=" margin-bottom: 15px;">
+              <div class="vc-slider-container" style="object-fit: contain; max-width: 440px;">
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/replacement1.mp4">
+                </video>
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/replacement1_origin.mp4">
+                </video>
+              </div>
+
+              <div class="vc-slider-container" style="object-fit: contain; max-width: 440px;">
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/replacement2.mp4">
+                </video>
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/replacement2_origin.mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <div class="item item2" style="text-align:center;">
+            <div class="video-new-container">
+              <div class="vc-slider-container" style="object-fit: contain; max-width: 440px;">
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/replacement3.mp4">
+                </video>
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/replacement3_origin.mp4">
+                </video>
+              </div>
+
+              <div class="vc-slider-container" style="object-fit: contain; max-width: 440px;">
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/replacement4.mp4">
+                </video>
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/replacement4_origin.mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <h4 class="subtitle has-text-centered"><b>Replacement Results</b></h4>
+
+    <div class="hero-body" style="padding-top: 0; padding-bottom: 0">
+      <div class="container is-max-desktop">
+        <div id="results-carousel5" class="carousel results-carousel">
+
+          <div class="item item1" style="text-align:center;">
+            <div class="video-new-container" style=" margin-bottom: 15px;">
+              <div class="vc-slider-container" style="object-fit: contain; max-width: 440px;">
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/deletion1.mp4">
+                </video>
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/deletion1_origin.mp4">
+                </video>
+              </div>
+
+              <div class="vc-slider-container" style="object-fit: contain; max-width: 440px;">
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/deletion2.mp4">
+                </video>
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/deletion2_origin.mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <div class="item item2" style="text-align:center;">
+            <div class="video-new-container">
+              <div class="vc-slider-container" style="object-fit: contain; max-width: 440px;">
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/deletion3.mp4">
+                </video>
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/deletion3_origin.mp4">
+                </video>
+              </div>
+
+              <div class="vc-slider-container" style="object-fit: contain; max-width: 440px;">
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/deletion4.mp4">
+                </video>
+                <video playsinline autoplay muted loop>
+                  <source src="static/videos/deletion4_origin.mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <h4 class="subtitle has-text-centered"><b>Deletion Results</b></h4>
+
+  </section>
+
+  <script>
+    function toggleVideo() {
+      var checkbox = document.getElementById('videoToggle');
+      var video1 = document.getElementById('video_reposition1');
+      var video2 = document.getElementById('video_reposition2');
+      var video3 = document.getElementById('video_reposition3');
+      var video4 = document.getElementById('video_reposition4');
+      var video5 = document.getElementById('video_insertion1');
+      var video6 = document.getElementById('video_insertion2');
+      var video7 = document.getElementById('video_insertion3');
+      var video8 = document.getElementById('video_insertion4');
+
+      if (checkbox.checked) {
+        video1.src = "static/videos/reposition1_box.mp4";
+        video2.src = "static/videos/reposition2_box.mp4";
+        video3.src = "static/videos/reposition3_box.mp4";
+        video4.src = "static/videos/reposition4_box.mp4";
+        video5.src = "static/videos/insertion1_box.mp4";
+        video6.src = "static/videos/insertion2_box.mp4";
+        video7.src = "static/videos/insertion3_box.mp4";
+        video8.src = "static/videos/insertion4_box.mp4";
+        video1.play();
+        video1.loop = true;
+        video1.autoplay = true;
+        video2.play();
+        video2.loop = true;
+        video2.autoplay = true;
+        video3.play();
+        video3.loop = true;
+        video3.autoplay = true;
+        video4.play();
+        video4.loop = true;
+        video4.autoplay = true;
+        video5.play();
+        video5.loop = true;
+        video5.autoplay = true;
+        video6.play();
+        video6.loop = true;
+        video6.autoplay = true;
+        video7.play();
+        video7.loop = true;
+        video7.autoplay = true;
+        video8.play();
+        video8.loop = true;
+        video8.autoplay = true;
+      } else {
+        video1.src = "static/videos/reposition1.mp4";
+        video2.src = "static/videos/reposition2.mp4";
+        video3.src = "static/videos/reposition3.mp4";
+        video4.src = "static/videos/reposition4.mp4";
+        video5.src = "static/videos/insertion1.mp4";
+        video6.src = "static/videos/insertion2.mp4";
+        video7.src = "static/videos/insertion3.mp4";
+        video8.src = "static/videos/insertion4.mp4";
+        video1.play();
+        video1.loop = true;
+        video1.autoplay = true;
+        video2.play();
+        video2.loop = true;
+        video2.autoplay = true;
+        video3.play();
+        video3.loop = true;
+        video3.autoplay = true;
+        video4.play();
+        video4.loop = true;
+        video4.autoplay = true;
+        video5.play();
+        video5.loop = true;
+        video5.autoplay = true;
+        video6.play();
+        video6.loop = true;
+        video6.autoplay = true;
+        video7.play();
+        video7.loop = true;
+        video7.autoplay = true;
+        video8.play();
+        video8.loop = true;
+        video8.autoplay = true;
+      }
+    }
+  </script>
+
+
+  <!-- Paper poster -->
+  <!-- <section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Poster</h2>
+      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550"></iframe>
+      </div>
+    </div>
+  </section> -->
+  <!--End paper poster -->
+
+
+  <!--BibTex citation -->
+  <!--End BibTex citation -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                target="_blank">Academic Project Page Template</a> which was adopted from the <a
+                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+
+              <br> This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
