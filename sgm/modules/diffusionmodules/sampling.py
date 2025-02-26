@@ -68,7 +68,8 @@ class BaseDiffusionSampler:
         return denoised, denoised_3d
 
     def get_sigma_gen(self, num_sigmas):
-        sigma_generator = range(num_sigmas - 1)
+        sampling_steps = num_sigmas - 1
+        sigma_generator = range(sampling_steps)
         if self.verbose:
             print("#" * 30, " Sampling setting ", "#" * 30)
             print(f"Sampler: {self.__class__.__name__}")
@@ -76,8 +77,8 @@ class BaseDiffusionSampler:
             print(f"Guider: {self.guider.__class__.__name__}")
             sigma_generator = tqdm(
                 sigma_generator,
-                total=num_sigmas,
-                desc=f"Sampling with {self.__class__.__name__} for {num_sigmas} steps",
+                total=sampling_steps,
+                desc=f"Sampling with {self.__class__.__name__} for {sampling_steps} steps",
             )
         return sigma_generator
 
