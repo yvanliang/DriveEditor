@@ -36,3 +36,4 @@ wheel>=0.41.0
 gradio>=5.9.0
 streamlit-keyup==0.2.0
 nuscenes-devkit
+deepspeed>=0.15.2

@@ -524,22 +524,6 @@ class GradioShow:
         obj_separate_im = transforms.ToTensor()(obj_separate_im) * 2.0 - 1.0
         obj_separate_mask = (transforms.ToTensor()(obj_separate_mask) * 2.0 - 1.0).repeat(3, 1, 1)
 
-        # '/mnt/data/liangyiyuan/NAS/dataset/nuscenes/gm_data/obj_im_separate/b832ef81cda9403e8d24829810e62c36/9606a04bab9c4953a73c898e71beee88_5817c966749b456f8386fdae2eadca88.png'
-        # obj_separate_path ='/mnt/data/liangyiyuan/NAS/dataset/nuscenes/gm_data/obj_im_separate/b832ef81cda9403e8d24829810e62c36/9606a04bab9c4953a73c898e71beee88_5817c966749b456f8386fdae2eadca88.png'
-        # obj_separate_im = cv2.cvtColor(
-        #     cv2.imread(obj_separate_path),
-        #     cv2.COLOR_BGR2RGB,
-        # )
-        # obj_separate_im = cv2.resize(obj_separate_im, None, None, fx=0.92, fy=0.92, interpolation=cv2.INTER_CUBIC)
-        # obj_separate_im = transforms.ToTensor()(obj_separate_im) * 2.0 - 1.0
-        #
-        # obj_separate_mask = cv2.imread(obj_separate_path.replace('.png', '_m.png'), cv2.IMREAD_GRAYSCALE)
-        # obj_separate_mask = cv2.resize(obj_separate_mask, None, None, fx=0.92, fy=0.92, interpolation=cv2.INTER_CUBIC)
-        # obj_separate_mask = cv2.morphologyEx(obj_separate_mask, cv2.MORPH_OPEN, np.ones((9, 9), np.uint8))
-        # obj_separate_mask = (
-        #         transforms.ToTensor()(obj_separate_mask) * 2.0 - 1.0
-        # ).repeat(3, 1, 1)
-
         if mode not in ('Repositioning', 'Insertion'):
             box_keyframe = self.data['data'][keyframe_idx]['box']
         else:
