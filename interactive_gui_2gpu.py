@@ -6,6 +6,7 @@ import torch
 import numpy as np
 import gradio as gr
 import pickle
+import imageio as imageio_v1
 
 from einops import repeat, rearrange
 from nuscenes.utils.geometry_utils import view_points
@@ -748,15 +749,23 @@ def get_scale_by_obj_azimuth(obj_azimuth, scale_min=1.2, scale_max=2.8):
 
 
 def concatenate_images(images):
-    height, width = images[0].shape[:2]
-    fourcc = cv2.VideoWriter_fourcc(*'mp4v')
     video_filename = os.path.join(tempfile.gettempdir(), 'output.mp4')
-    out = cv2.VideoWriter(video_filename, fourcc, 7, (width, height))
-    for img in images:
-        img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
-        out.write(img)
 
-    out.release()
+    output_writer = imageio_v1.get_writer(
+        video_filename,
+        fps=7,
+        codec="libx264",
+        macro_block_size=None,
+        ffmpeg_params=[
+            "-crf", "20",
+            "-preset", "slow"
+            "-pix_fmt", "yuv420p"
+        ],
+    )
+    for img in images:
+        output_writer.append_data(img)
+    output_writer.close()
+
     return video_filename
 
 
